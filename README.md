@@ -23,7 +23,7 @@ Here is how both pillars were engineered from the ground up.
 
 ---
 
-# Pillar I: Algorithmic Core (`soham_segmentation`)
+# Pillar I: Algorithmic Core (*soham_segmentation*)
 
 ### 1. The Clinical Objective: Patient Triage Over Pixel Dice
 
@@ -159,7 +159,7 @@ Patient 196 (True Agatston: 2822.9 — Extensive)
 
 ---
 
-# Pillar II: Autonomous Clinical Workstation (`predict_software`)
+# Pillar II: Autonomous Clinical Workstation (*predict_software*)
 
 Achieving strong statistical metrics on test sets is only half the battle. In hospital environments, research scripts frequently fail because they lack reproducibility safeguards, provide no audit trail for medical professionals, and hide their logic behind opaque command-line interfaces.
 
