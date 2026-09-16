@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="images/header.png" alt="PrediCT Header" width="100%">
+</p>
+
 # PrediCT: Deep Learning Segmentation & Autonomous Clinical Workstation for Coronary Calcium Scoring
 **Google Summer of Code 2026 @ ML4Sci**  
 **Contributor:** Soham Jadhav | **Mentors:** Katy Butler, Anna | **Co-contributor:** Rajat  
