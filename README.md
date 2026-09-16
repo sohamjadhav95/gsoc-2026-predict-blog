@@ -44,7 +44,7 @@ Clinical risk is governed by Dr. Hahn's 6-tier Agatston risk classification:
 <p align="center">
   <img src="images/pipeline_slide.jpg" alt="PrediCT Architecture" width="90%">
   <br>
-  <em>Figure 1: The five-stage PrediCT processing pipeline: raw DICOM discovery $\rightarrow$ orientation & cardiac cropping $\rightarrow$ contract-gated model inference $\rightarrow$ slice-by-slice Agatston lesion scoring $\rightarrow$ multi-format clinical reporting.</em>
+  <em>Figure 1: The five-stage PrediCT processing pipeline: raw DICOM discovery → orientation & cardiac cropping → contrast-gated model inference → slice-by-slice Agatston lesion scoring → multi-format clinical reporting.</em>
 </p>
 
 ---
