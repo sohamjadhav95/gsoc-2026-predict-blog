@@ -1,1 +1,0 @@
-# gsoc-2026-predict-blog
