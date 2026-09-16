@@ -131,7 +131,7 @@ We computed full Agatston scores (lesion area multiplied by peak attenuation den
 | :--- | :--- | :--- | :--- |
 | **Median Absolute Error (AE)** | 42.97 | **19.27** | **2.2× lower error** for typical scans |
 | **Mean Absolute Error (MAE)** | **179.62** | 188.53 | Heavily skewed by extreme scores (>2000) |
-| **Pearson Correlation ($r$)** | **0.8510** | 0.8458 | High linear agreement with ground truth |
+| **Pearson Correlation (*r*)** | **0.8510** | 0.8458 | High linear agreement with ground truth |
 | **R² Score** | **0.724** | 0.715 | Consistent variance tracking |
 | **Risk Concordance (Test, *n*=66)** | 77.3% (51/66) | **83.3% (55/66)** | Fewer over-stratification errors on borderline cases |
 | **Risk Concordance (Replication, *n*=374)** | 70.7% | **76.7%** | **Statistically significant (*p* = 0.038)** |
