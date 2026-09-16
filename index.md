@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="images/header.png" alt="PrediCT Header" width="100%">
-</p>
-
 # PrediCT: Deep Learning Segmentation & Autonomous Clinical Workstation for Coronary Calcium Scoring
 **Google Summer of Code 2026 @ ML4Sci**  
 **Contributor:** Soham Jadhav | **Mentors:** Katy Butler, Anna | **Co-contributor:** Rajat  
@@ -9,8 +5,11 @@
 * **Algorithmic Core:** [`ML4Sci/PrediCT: soham_segmentation`](https://github.com/ML4Sci/PrediCT/tree/soham_segmentation)
 * **Clinical Software Workstation:** [`ML4Sci/PrediCT: predict_software`](https://github.com/ML4Sci/PrediCT/tree/predict_software)
 
----
+<p align="center">
+  <img src="images/header.png" alt="PrediCT Header" width="100%">
+</p>
 
+---
 ## Executive Summary
 
 Coronary Artery Calcium (CAC) scoring on non-contrast cardiac CT scans is one of modern medicine’s most dependable tools for forecasting cardiovascular risk. In routine clinical practice, treatment decisions do not rely on standard computer vision metrics like pixel-level Dice overlap; they hinge directly on the patient's **Agatston score**.
