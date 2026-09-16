@@ -1,0 +1,7 @@
+theme: jekyll-theme-cayman
+title: PrediCT — CAC Segmentation & Studio
+description: Google Summer of Code 2026 Final Work Product
+show_downloads: false
+markdown: kramdown
+kramdown:
+  input: GFM
