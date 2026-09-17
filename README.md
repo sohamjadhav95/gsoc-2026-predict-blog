@@ -29,7 +29,7 @@ Here is how both pillars were engineered from the ground up.
 
 In medical imaging, reaching a 0.70 or 0.80 Dice score looks respectable on an academic leaderboard. But on tiny, sparse coronary plaques, standard Dice metrics hide critical failure modes. A two-voxel boundary error on a small lesion can double its measured area, inadvertently pushing a borderline patient across a clinical threshold from routine lifestyle advice into lifelong statin therapy.
 
-Clinical risk is governed by Dr. Hahn's 6-tier Agatston risk classification:
+Clinical risk is governed by the 6-tier Agatston risk classification:
 * **0:** Zero / No detectable plaque
 * **1 – 100:** Mild risk
 * **101 – 300:** Moderate risk
@@ -92,7 +92,7 @@ To resolve integer snapping, we designed **Approach 3 (Soft Coverage)**. Instead
 
 `Voxel Value = Area(Polygon ∩ Pixel Box) / Area(Pixel Box)`
 
-Each boundary voxel receives a continuous ground-truth value between 0.0 and 1.0, accurately capturing partial volume effects. Comparing continuous mask sums against the XML Shoelace area formula showed that Approach 3 reduced mean area error from **10.19% down to 0.03%**—virtually eliminating boundary bias.
+Each boundary voxel receives a continuous ground-truth value between 0.0 and 1.0, accurately capturing partial volume effects. Comparing continuous mask sums against the XML Shoelace area formula showed that Approach 3 reduced mean area error from **10.19% down to 0.03%** virtually eliminating boundary bias.
 
 ```
 Subpixel XML Area vs. Mask Representation:
@@ -141,15 +141,15 @@ Because Agatston scores span from single-digit specks to several thousand units,
 Under the 6-tier risk scale, Approach 3 achieved **83.3% agreement** compared to 77.3% for Approach 1 on the 66-patient test set (McNemar discordant pairs: *b*=4, *c*=0, *p*=0.125). When replicated on the paired 374-patient cohort, the categorical advantage held firmly at **76.7% vs. 70.7%**, reaching statistical significance (**McNemar exact *p* = 0.038**; 27 A3-only corrections vs. 13 A1-only corrections).
 
 ```
-Patient 205 (True Agatston: 92.0 — Mild)
+Patient 205 (True Agatston: 92.0 | Mild)
 ├── A1 Binary Prediction  : 529.1 → Severe (over-stratified by two clinical tiers)
 └── A3 Coverage Prediction: 315.4 → Moderate (substantially closer to true risk)
 
-Patient 82 (True Agatston: 369.1 — Moderately High)
+Patient 82 (True Agatston: 369.1 | Moderately High)
 ├── A1 Binary Prediction  : 834.1 → Severe (misclassified into highest tier)
 └── A3 Coverage Prediction: 251.2 → Moderate (avoids severe category escalation)
 
-Patient 196 (True Agatston: 2822.9 — Extensive)
+Patient 196 (True Agatston: 2822.9 | Extensive)
 ├── A1 Binary Prediction  : 2357.0 → Extensive (closer raw score)
 └── A3 Coverage Prediction: 1570.3 → Extensive (correct clinical tier)
 ```
@@ -163,7 +163,7 @@ Patient 196 (True Agatston: 2822.9 — Extensive)
 
 Achieving strong statistical metrics on test sets is only half the battle. In hospital environments, research scripts frequently fail because they lack reproducibility safeguards, provide no audit trail for medical professionals, and hide their logic behind opaque command-line interfaces.
 
-To transition our models from research artifacts into a dependable clinical asset, we engineered **PrediCT Studio**—a standalone, local-first web application and automated execution engine designed around clinical accountability and strict safety boundaries.
+To transition our models from research artifacts into a dependable clinical asset, we engineered **PrediCT Studio** a standalone, local-first web application and automated execution engine designed around clinical accountability and strict safety boundaries.
 
 ---
 
@@ -207,7 +207,7 @@ predict_software/Predict-Studio/
 ### 2. Clinical Safety & Auditability Principles
 
 #### Principle A: The Model Contract Gate (`registry.py`)
-Neural network weights (`best_model.pth`) are merely parameter tensors. They do not store their required preprocessing parameters—such as whether the model expects `[0, 1200]` HU or `[-100, 1000]` HU, or whether outputs represent binary labels versus coverage fractions.
+Neural network weights (`best_model.pth`) are merely parameter tensors. They do not store their required preprocessing parameters, such as whether the model expects `[0, 1200]` HU or `[-100, 1000]` HU, or whether outputs represent binary labels versus coverage fractions.
 
 In PrediCT Studio, models cannot run without an accompanying `manifest.yaml`. On startup, `registry.py` verifies the model file against a recorded SHA256 hash. If an operator attempts to run `a1-roi` or `a3-coverage-v2` with mismatched windowing, incorrect voxel dimensions, or a corrupted checkpoint, **the pipeline refuses to execute**, preventing confident but incorrect scores from ever reaching a physician.
 
